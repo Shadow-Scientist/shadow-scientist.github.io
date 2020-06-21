@@ -1,0 +1,388 @@
+<!doctype html>
+<head>
+	<title>Knife.css | Let's cut them down!</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	<link href="knife-v2.stable.css" rel="stylesheet">
+<style>
+/* Typography & web-icons */
+@import "https://fonts.googleapis.com/css?family=Exo:400,500,600,700";
+@import "https://fonts.googleapis.com/css?family=Roboto:400,500,600,700";
+
+/* MaterialDesignIcons.com */
+@font-face {
+	font-family: "Material Design Icons";
+	src: url("https://cdn.materialdesignicons.com/2.1.19/fonts/materialdesignicons-webfont.eot?v=2.1.19");
+	src: url("https://cdn.materialdesignicons.com/2.1.19/fonts/materialdesignicons-webfont.eot?#iefix") format("embedded-opentype"),
+		 url("https://cdn.materialdesignicons.com/2.1.19/fonts/materialdesignicons-webfont.woff2?v=2.1.19") format("woff2"),
+		 url("https://cdn.materialdesignicons.com/2.1.19/fonts/materialdesignicons-webfont.woff?v=2.1.19") format("woff"),
+		 url("https://cdn.materialdesignicons.com/2.1.19/fonts/materialdesignicons-webfont.ttf?v=2.1.19") format("truetype"),
+		 url("https://cdn.materialdesignicons.com/2.1.19/fonts/materialdesignicons-webfont.svg?v=2.1.19#materialdesigniconsregular") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+/* Making things look pretty */
+
+*{outline:none!important}
+
+body, html{
+	scrollbar-color:rgb(0,120,200) rgb(44,45,49);
+	scrollbar-width:thin;
+	scroll-behavior:smooth!important;
+	padding:0;
+	margin:0;
+}
+
+body{
+	background-color:rgb(54,55,59);
+	overflow-x:hidden;
+	overflow-y:auto;
+	width:100vw;
+	font-family:"Exo", Roboto, Arial, "Material Design Icons", sans-serif;
+	color:white;
+}
+
+body > .row{
+	display:block;
+	position:relative;
+	max-width:940px;
+	min-width:200px;
+	display:block;
+	margin:auto;
+	margin-top:100px;
+	margin-bottom:100px;
+}
+
+h1,h2,h3,h4,h5{
+	margin:0;
+	padding:0;
+	position:relative;
+	display:inline-block;
+}
+
+.header > h1{margin-bottom:-15px}
+h1{font-size:6.5vmax;font-weight:bold}
+h2{font-size:2.5vmax;font-weight:bold}
+h3{font-size:1.9vmax;font-weight:400}
+
+h1 x{
+	background-color:rgb(0,120,240);
+	font-size:1.2vmax;
+	color:white;
+	display:inline-block;
+	position:relative;
+	float:right;
+	padding:0px 12px;
+	border-radius:50px;
+}
+
+.header{
+	display:inline-block;
+	position:relative;
+	left:50%;
+	transform:translateX(-50%);
+}
+
+.somedescription{
+	position:relative;
+	margin-top:50px;
+	font-size:1.5vmax;
+	text-align:justify;
+	color:rgba(255,255,255,0.8);
+}
+
+.somedescription::after{
+	content:" ";
+	margin-top:25px;
+	position:relative;
+	width:90%;
+	height:2px;
+	left:50%;
+	transform:translateX(-50%);
+	background-color:rgba(255,255,255,0.14);
+	display:inline-block;
+}
+
+.showcase{
+	position:relative;
+	width:100%;
+	background:xred;
+	display:block;
+	margin-top:20px;
+	font-size:0px;
+	text-align:center;
+}
+
+.showcase .box{
+	cursor:pointer;
+	position:relative;
+	margin:30px 20px;
+	width:430px;
+	background:rgba(0,0,0,0.1);
+	display:inline-block;
+	border-radius:20px;
+	transition:all ease 0.3s;
+	font-size:40px;
+	padding-top:40px;
+	overflow:hidden;
+}
+
+.showcase .box .knife{--font-size:54px;--font-weight:bold;--knife-size:4px}
+.showcase .box .knife.-knife-diag{--angle:21deg}
+.showcase .box .knife.-knife-icon.-knife-diag{--angle:45deg}
+.showcase .box .knife.-knife-icon{--font-size:80px;--knife-size:6px;--expansion:20px}
+
+.showcase .box x{
+	position:relative;
+	display:block;
+	background:rgba(0,0,0,0.08);
+	margin-top:35px;
+	font-family:"Lucida Console", Consolas, Arial, sans-serif;
+	font-size:19px;
+	padding:10px 0;
+	transition:all ease 0.2s;
+	color:rgba(255,255,255,0.8);
+}
+.showcase .box[btype="best"] x{background-color:rgb(0,100,200);color:white!important}
+
+.showcase .box:hover{
+	box-shadow:0 0 0 5px rgba(0,0,0,0.2);
+}
+
+.showcase .box:active{
+	box-shadow:0 0 0 5px rgb(255,255,255);
+}
+
+.showcase .box.active{
+	box-shadow:0 0 0 14px rgb(0,130,255);
+}
+
+.showcase .box.active > x{color:rgb(0,130,255)}
+
+#snack{
+	position:fixed;
+	bottom:-60px;
+	left:50%;
+	transform:translate(-50%);
+	display:inline-block;
+	padding:10px 30px;
+	background:black;
+	border-radius:14px 14px 0 0;
+	font-family:"Roboto", Arial, sans-serif;
+	font-size:1.5vmax;
+}
+
+.tags{
+	position:fixed;
+	top:10%;
+	left:48px;
+	display:inline-block;
+	padding:12px;
+	padding-right:16px;
+	background:rgba(0,0,0,0.3);
+	border-radius:0 44px 44px 0;
+	font-family:"Material Design Icons", "Roboto", Arial, sans-serif;
+	font-size:22px;
+	text-align:right;
+	cursor:pointer;
+	transform:translateX(-100%);
+	transition:all ease 0.4s;
+	box-shadow:-7px 0 0 0 rgb(255,255,255);
+}
+
+.tags > div{
+	position:absolute;
+	width:48px;
+	height:48px;
+	right:0px;
+	top:0px;
+	background:rgba(0,0,0,0);
+}
+.tags span{font-size:16px;position:relative;top:-1px}
+#forkme{top:calc(10% + 64px);text-decoration:none;color:white}
+
+#forkme:active{background-color:rgb(0,120,255);transform:translateX(-41px)}
+#forkme:hover, #customtext.activated{background-color:rgb(0,120,255);transform:translateX(-48px)}
+#customtext:hover{background-color:rgb(0,120,255)}
+#customtext > input{
+	font-familiy:"Roboto", Arial, sans-serif;
+	font-size:16px;
+	color:white;
+	background:transparent;
+	border:0;
+	outline:none;
+	position:relative;
+	top:-1px;
+	left:-1px;
+}
+
+@keyframes up{30%{bottom:0px} 100%{bottom:-60px}}
+
+@media (max-width:999px){
+.row{padding:0 40px}
+.showcase .box{width:90%}
+#snack{font-size:2.2vmax}
+}
+
+@media (max-width:710px){
+.somedescription{font-size:2.5vmax}
+.header > h1{font-size:9vmax}
+h1 > x{font-size:2vmax}
+h2{margin-top:10px}
+h3{font-size:2.5vmax}
+}
+
+@media (max-width:752px){
+.somedescription{font-size:2.2vmax}
+}
+
+@media (max-width:918px){
+.somedescription{padding:0px 80px}
+}
+
+@media (max-width:684px){
+.somedescription{padding:0px 0px}
+}
+</style>
+</head>
+
+<body>
+<div class="row">
+<div class="header">
+<h1>Knife.css<x>beta</x></h1>
+<BR><h2>|</h2>&nbsp;&nbsp;&nbsp;&nbsp;<h3>Let's cut them down!</h3>
+</div>
+<div class="somedescription">
+Knife.css is a light-weight (&lt;8kb minified), pure css based typography library to play with text and create interactive animations and micro-interactions. It features almost 18 types of (sharp!) knifes that are ready to cut any text as well as icons*. This is the showcase of that. Pick any of the knifes to see its usage and source code. Hover the text to see the effect.<br>
+</div>
+<div class="showcase" id="showbox">
+<div class="box"> <div class="knife" text="Knife.css"><div></div></div> <x>knife</x> </div>
+<div class="box"> <div class="knife -knife-diag" text="TEXT"><div></div></div> <x>knife -knife-diag</x> </div>
+<div class="box" btype="best"> <div class="knife -knife-distort" text="DISTORT" style="--knife-size:14%"><div></div></div> <x>knife -knife-distort</x> </div>
+<div class="box"> <div class="knife -knife-slowmo" text="SLOWMO" style="--font-family:Arial;--font-weight:400"><div></div></div> <x>knife -knife-slowmo</x> </div>
+
+<div class="box"> <div class="knife -knife-strike" text="Silly Mistakes" style="--font-weight:400"><div></div></div> <x>knife -knife-strike</x> </div>
+<div class="box"> <div class="knife -knife-sliced" text="Slice me :)"><div></div></div> <x>knife -knife-sliced</x> </div>
+<div class="box"> <div class="knife -knife-float" text="Slice here"><div></div></div> <x>knife -knife-float</x> </div>
+<div class="box"> <div class="knife -knife-float-re" text="Slice there"><div></div></div> <x>knife -knife-float-re</x> </div>
+
+<div class="box"> <div class="knife -knife-reveal" text="Hello World!" style="background:rgba(255,255,255,0.05)"><div></div></div> <x>knife -knife-reveal</x> </div>
+<div class="box"> <div class="knife -knife-reveal-digital" text="Digital World" style="background:rgba(255,255,255,0.05)"><div></div></div> <x>knife -knife-reveal-digital</x> </div>
+
+<div class="box"> <div class="knife -knife-gradient" text="Awesome!"><div></div></div> <x>knife -knife-gradient</x> </div>
+<div class="box"> <div class="knife -knife-gradient-hue" text="Rainbow"><div></div></div> <x>knife -knife-gradient-hue</x> </div>
+
+<div class="box"> <div class="knife -knife-shoot" text="Hello"><div></div></div> <x>knife -knife-shoot</x> </div>
+<div class="box"> <div class="knife -knife-trishoot" text="H!D3"><div></div></div> <x>knife -knife-trishoot</x> </div>
+<div class="box"> <div class="knife -knife-clone" text="Illusion"><div></div></div> <x>knife -knife-clone</x> </div>
+<div class="box"> <div class="knife -knife-clone-rotate" text="Illusion"><div></div></div> <x>knife -knife-clone-rotate</x> </div>
+
+<h2><br><br>How about some icons?</h2><br>
+<div class="box"> <div class="knife -knife-icon" style="--icon:'\f4ce'"><div></div></div> <x>knife -knife-icon</x> </div>
+<div class="box"> <div class="knife -knife-icon -knife-diag" style="--icon:'\f169'"><div></div></div> <x>knife -knife-icon -knife-diag</x> </div>
+<div class="box" btype="best"> <div class="knife -knife-icon -knife-distort" style="--icon:'\f538';--knife-size:15%"><div></div></div> <x>knife -knife-icon -knife-distort</x> </div>
+<div class="box"> <div class="knife -knife-icon -knife-slowmo" style="--icon:'\f31c'"><div></div></div> <x>knife -knife-icon -knife-slowmo</x> </div>
+<div class="box"> <div class="knife -knife-icon -knife-strike" style="--icon:'\f362'"><div></div></div> <x>knife -knife-icon -knife-strike</x> </div>
+<div class="box"> <div class="knife -knife-icon -knife-sliced" style="--icon:'\f749'"><div></div></div> <x>knife -knife-icon -knife-sliced</x> </div>
+<div class="box"> <div class="knife -knife-icon -knife-float" style="--icon:'\f55e'"><div></div></div> <x>knife -knife-icon -knife-float</x> </div>
+<div class="box"> <div class="knife -knife-icon -knife-float-re" style="--icon:'\f561'"><div></div></div> <x>knife -knife-icon -knife-float-re</x> </div>
+<div class="box"> <div class="knife -knife-icon -knife-reveal" style="--icon:'\f7db';background:rgba(255,255,255,0.05)"><div></div></div> <x>knife -knife-icon -knife-reveal</x> </div>
+<div class="box"> <div class="knife -knife-icon -knife-reveal-digital" style="--icon:'\f553';background:rgba(255,255,255,0.05)"><div></div></div> <x style="font-size:15px">knife -knife-icon -knife-reveal-digital</x> </div>
+<div class="box"> <div class="knife -knife-icon -knife-shoot" style="--icon:'\f208'"><div></div></div> <x>knife -knife-icon -knife-shoot</x> </div>
+<div class="box"> <div class="knife -knife-icon -knife-trishoot" style="--icon:'\f5f9'"><div></div></div> <x>knife -knife-icon -knife-trishoot</x> </div>
+<div class="box"> <div class="knife -knife-icon -knife-gradient" style="--icon:'\f3ea'"><div></div></div> <x>knife -knife-icon -knife-gradient</x> </div>
+<div class="box"> <div class="knife -knife-icon -knife-gradient-hue" style="--icon:'\f0e3'"><div></div></div> <x>knife -knife-icon -knife-gradient-hue</x> </div>
+
+<h2><br><br>Icon Specials</h2><br>
+<div class="box" btype="best"> <div class="knife -knife-icon -knife-icon-sword" style="--icon:'\f6e7';--color2:rgba(0,0,0,0.3)"><div></div></div> <x>knife -knife-icon -knife-icon-sword</x> </div>
+<div class="box"> <div class="knife -knife-icon -knife-icon-float" style="--icon:'\f2cb'"><div></div></div> <x>knife -knife-icon -knife-icon-float</x> </div>
+<div class="box"> <div class="knife -knife-icon -knife-ellipse" style="--icon:'\f002'"><div></div></div> <x>knife -knife-icon -knife-ellipse</x> </div>
+<div class="box"> <div class="knife -knife-icon -knife-icon-bell" style="--icon:'\f09e'"><div></div></div> <x>knife -knife-icon -knife-icon-bell</x> </div>
+</div>
+
+</div>
+<div id="snack">&lt;\&gt;&nbsp;&nbsp;Copied</div>
+<div class="tags" id="customtext"><input id="customtext_input" placeholder="Enter a custom text" oninput="changetext(this)" onchange="changetext(this)" onblur="this.value=(this.value+'').trim()"/>&nbsp;&nbsp;&nbsp;&#62990;<div onclick="preparetext()"></div></div>
+<a class="tags" href="https://github.com/Shadow-Scientist/Knife.css" id="forkme"><span>Fork me on Github</span>&nbsp;&nbsp;&nbsp;&nbsp;&#62657;</a>
+</body>
+
+<script type="text/javascript" id="showcase_main">
+function boxes(){return showbox.querySelectorAll('.box')}
+function knifeentries(){return showbox.querySelectorAll('.knife')}
+function show()
+{
+boxes().forEach(function(s, i){
+q = s.querySelector('.knife');
+if(q.getAttribute('text')){q.setAttribute('temptext', q.getAttribute('text'))};
+s.id = "effect"+(i+1);
+s.addEventListener('click', function(){ select(this) });
+});
+}
+
+function select(a)
+{
+boxes().forEach(function(s){s.className = 'box'});
+//window.location.href='#'+a.id;
+a.className = 'box active';
+var theKnife = a.querySelector('.knife');
+var txt = (customtext_input.value+"").trim();
+if(txt == ""){txt = theKnife.getAttribute('temptext')}
+//if((theKnife.className+"").match("-knife-icon")){copy("<div class=\""+theKnife.className+"\" style=\"--icon:'\\unicode'\"><div></div></div>")}
+//else{copy("<div class=\""+theKnife.className+"\" text=\""+txt+"\"><div></div></div>");}
+copy(theKnife.outerHTML);
+}
+
+function copy(s){
+var ttarea = document.createElement('textarea');
+ttarea.style.position = 'absolute';
+ttarea.style.left = '-100%';
+ttarea.style.top = '0%';
+ttarea.innerText = s;
+document.body.appendChild(ttarea);
+ttarea.select();
+document.execCommand('copy');
+setTimeout(function(){ document.body.removeChild(ttarea) },500);
+snack.style.animation = 'none';
+setTimeout(function(){snack.style.animation = 'up ease 2s';
+snack.onanimationend = function(){snack.style.animation = 'none'}
+},50);
+}
+
+function changetext(a)
+{
+var data_text = (a.value+"").trim();
+knifeentries().forEach(function(z){
+if(data_text != ""){z.setAttribute('text', data_text)}
+else{z.setAttribute('text', z.getAttribute('temptext'))}
+});
+}
+
+function preparetext()
+{
+customtext.classList.toggle('activated');
+setcaret(customtext_input, (customtext_input.value+"").length);
+}
+
+/* based on https://stackoverflow.com/a/499158
+   simplified & slightly modified.
+ */
+function setcaret(elem, pos)
+{
+if(elem.setSelectionRange){ elem.focus();elem.setSelectionRange(pos, pos) }
+else if(elem.createTextRange)
+{
+var range = elem.createTextRange();
+range.collapse(true);
+range.moveEnd('character', pos);
+range.moveStart('character', pos);
+range.select();
+}
+}
+
+window.addEventListener('load', function(){show()});
+</script>
+</html>
+
+
+
