@@ -1,11 +1,13 @@
  body{
  width:100vw;height:100vh;padding:0;margin:0;background-color:rgb(220,225,230);color:rgb(0,100,220);
- font-family:Exo;font-weight:500;font-size:18px;display:flex;align-items:center;
+ font-family:"Exo", Arial, sans-serif;
+ font-weight:500;font-size:18px;display:flex;align-items:center;
  }
  
  .uc{
  display:block;
  text-align:center;
+ width:100%;
  }
 
-.uc > b{display:block;margin-bottom:20px;font-size:30px}
+.uc > b{display:block;margin-bottom:20px;font-size:34px}
