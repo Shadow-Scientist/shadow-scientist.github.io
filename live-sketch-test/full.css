@@ -1,0 +1,31 @@
+body{
+padding:0;
+margin:0;
+width:100vw;
+height:100vh;
+overflow:hidden;
+position:relative;
+}
+
+.cont{
+position:absolute;
+left:0;
+top:0;
+width:100%;
+height:100%;
+filter:grayscale(100%) invert(100%) contrast(87%);
+}
+
+.cont video{
+position:absolute;
+left:0;
+top:0;
+width:100%;
+height:100%;
+}
+
+.cont video:nth-child(2){
+mix-blend-mode:difference;
+left:-2px;
+top:2px;
+}
