@@ -1,0 +1,632 @@
+/*	CSS Brave Logo
+	by Shadow Scientist
+	(C) 2020, Shadman Shahriar (Shadow Scientist)
+	@ShadowShahriar
+
+	Features ——
+	# Plain CSS
+	# Completely Hand coded - the design was created with the most care and love within 6 hours
+	# Scalable - best viewed on 30x30px to 768x768px dimensions
+	# Performance - only 20 div elements were used (and optimized) in terms of better performance
+	# Entire design was created with transform, clip-path shapes, gradients and border-radius for better browser support
+	# 600+ lines of code / 16KB uncompressed
+	# One variable to set logo dimensions `--dimensions`
+	# Predeclared logo dimensions (b768,b512...,b32)
+	# Tested on Firefox 81.0 (WinNT 10.1/x64), 79.0.1 (WinNT 10/x64), 77.0 (WinNT 7/x32) and Chrome 85.0.4 (WinNT 10.1/x64), 80.0.4 (WinNT 7/x32)
+	# Workspace - 768 x 768px
+
+	Some words ——
+	# CSS is awesome but it acts weird across browsers. The same applies for transform, clip-path, background-image property and anti-aliasing.
+	   I tried my best to keep the design as accurate as possible (using some weird hacks as well) so it should be working fine on modern browsers. :)
+ */
+
+/* making things tidy */
+html, body{
+padding:0;
+margin:0;
+width:100vw;
+height:100vh;
+background-color:#FFF;
+scrollbar-width:thin;
+display:block;
+text-align:center; /* center element */
+}
+
+/* logo container */
+.brave-logo{
+position:relative;
+left:0;
+top:0;
+--dimensions:768; /* decimal number between 0-768 or higher */
+width:calc(var(--dimensions) * 1px);
+height:calc(var(--dimensions) * 1px);
+overflow:hidden;
+display:inline-block;
+}
+
+.brave-logo .logo{
+--primary-color:#FF2000;
+--secondary-color:#FF5500;
+--fill-color:#FFF;
+--reflection-color:#FF4125;
+
+position:relative;
+left:0;
+top:0;
+transform:scale(calc(var(--dimensions) / 768));
+transform-origin:0% 0%;
+width:768px;
+height:768px;
+box-shadow:0 0 0 1px rgba(0,0,0,0);
+}
+
+.brave-logo .wrapper{
+position:absolute;
+left:50%;
+top:0;
+width:85%;
+height:100%;
+transform:translateX(-50%);
+
+/* rough mask to set boundaries */
+clip-path: polygon(67% -1%, 78% 9.77%, 88% 8%, 99.2% 18.1%, 96.4% 24%, 100% 32.2%, 85% 80.6%, 49.7% 101%, 14.9% 80.6%, -0.1% 32.2%, 3.25% 24%, 0.59% 18.1%, 12% 8%, 21.7% 9.67%, 32.6% -1%);
+display:block;
+overflow:hidden;
+}
+
+.brave-logo .wrapper::before,
+.brave-logo .wrapper::after{
+content: "";
+position: absolute;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+display: block;
+background-repeat: no-repeat;
+}
+
+/* creating the body structure of the logo */
+.brave-logo .wrapper::before{
+background-image:
+		/* left radius */
+		linear-gradient(var(--secondary-color),var(--secondary-color)),
+		radial-gradient(ellipse at 50% 50%, var(--secondary-color) 50%, transparent 50%),
+
+		/* right radius */
+		linear-gradient(var(--primary-color),var(--primary-color)),
+		radial-gradient(ellipse at 50% 50%, var(--primary-color) 50%, transparent 50%),
+
+		/* bottom radius */
+		linear-gradient(var(--primary-color),var(--primary-color)),
+		radial-gradient(ellipse at 50% 50%, var(--primary-color) 50%, transparent 50%),
+
+		/* ears */
+		radial-gradient(ellipse at 50% 50%, var(--reflection-color) 50%, transparent 50%),
+		radial-gradient(ellipse at 50% 50%, var(--primary-color) 50%, transparent 50%),
+
+		/* body */
+		linear-gradient(var(--primary-color),var(--primary-color)),
+		linear-gradient(var(--primary-color),var(--primary-color));
+
+background-size:
+		12% 5%,
+		 28% 39%,
+		 12% 5%,
+		 28% 39%,
+		 50% 16%,
+		 32% 48%,
+		 49% 37%,
+		 49% 37%,
+		 100% 58%,
+		 56.4% 97%;
+
+background-position:
+		 21% 86%,
+		 11.46% 82.72%,
+		 78% 86%,
+		 88.46% 82.9%,
+		 49.7% 98%,
+		 49.58% 113.3%,
+		 -14.3% 5.7%,
+		 114% 5.7%,
+		 50% 43.43%,
+		 49.7% 0%;
+}
+
+/* adding gradient shades and highlight */
+.brave-logo .wrapper::after{
+background-image: linear-gradient(var(--secondary-color),var(--secondary-color)), radial-gradient(ellipse at 50% 50%, var(--reflection-color) 30%, transparent 50%), radial-gradient(ellipse at 50% 50%, var(--secondary-color) 40%, transparent 50%), radial-gradient(ellipse at 50% 50%, var(--secondary-color) 50%, transparent 50%), linear-gradient(var(--primary-color),var(--primary-color)), radial-gradient(ellipse at 50% 50%, var(--secondary-color) 30%, transparent 50%), radial-gradient(ellipse at 50% 50%, var(--secondary-color) 50%, transparent 50%);
+background-size: 41% 20%, 57% 73%, 30% 50%, 66% 66%, 50% 27%, 57% 176%, 67% 66%;
+background-position: 10% 29%, 19% -82%, 19% 107%, -66% 57%, 58% -4%, 11% 55%, -68% 7.5%;
+}
+
+.brave-logo .mask{
+position: absolute;
+left: 50%;
+top: 15.2%;
+height: 64.323%;
+width: 77.41%;
+z-index: 4;
+transform:translateX(-50%);
+overflow:hidden;
+}
+
+.brave-logo .mask > .i,
+.brave-logo .mask > .e{
+position:absolute;
+left:0;
+z-index:5;
+background-repeat:no-repeat;
+}
+
+.brave-logo .mask > .i{
+top:0;
+width:100%;
+height:76.05%;
+/* extended fill for sharp edges */
+background-image: linear-gradient(-21.2deg, var(--fill-color) 50%,transparent 50%), linear-gradient(-119deg, var(--fill-color) 50%,transparent 50%), linear-gradient(20.6deg, var(--fill-color) 50%,transparent 50%), linear-gradient(118deg, var(--fill-color) 50%,transparent 50%);
+background-size: 15% 13%, 15% 13%, 15% 13%, 15% 13%;
+background-position: 77.6% 27.12%, 68.8% 53%, 22.6% 27.4%, 31.29% 53%;
+}
+
+/* blob pair */
+.brave-logo .mask > .i::before,
+.brave-logo .mask > .i::after{
+content: "";
+position: absolute;
+top: 31.278%;
+width: 12%;
+height: 19%;
+background: var(--fill-color);
+border-radius: 37%;
+display: block;
+box-shadow: 0 0 0 1px rgba(0,0,0,0);
+}
+
+.brave-logo .mask > .i::before{
+left: 63.2%;
+transform: rotate(69deg);
+border-radius: 31px 37%;
+}
+
+.brave-logo .mask > .i::after{
+left: 24.63%;
+transform: rotate(112deg);
+border-radius: 37% 26px;
+}
+
+.brave-logo .mask > .e{
+left: 50%;
+bottom: 0%;
+width: 41.42%;
+height: 27.2%;
+transform: translateX(-50%);
+}
+
+/* rough fill */
+.brave-logo .mask::before{
+content:"";
+position:absolute;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background-color:var(--fill-color);
+
+/* pop edges */
+background-image: linear-gradient(var(--primary-color), var(--primary-color)), linear-gradient(var(--fill-color), var(--fill-color)), linear-gradient(var(--fill-color), var(--fill-color)), linear-gradient(var(--secondary-color), var(--secondary-color)), linear-gradient(var(--primary-color), var(--primary-color));
+background-size: 71px 11px, 32px 11px, 32px 11px, 32px 69px, 32px 69px;
+background-position: 50% 1px, 154px 18px, 315px 18px, -20px 98px, 481px 98px;
+
+background-repeat:no-repeat;
+
+/* set boundaries */
+clip-path:polygon(17% 1.5%, 34% 4.5%, 50% 0.2%, 66% 4.5%, 82.6% 1.5%, 91.5% 13%, 102% 28%, 91.9% 39%, 79% 53%, 82.5% 64%, 77.2% 73%, 73% 75%, 58.2% 68%, 51% 60.1%, 69.2% 47%, 62.2% 29%, 73% 23%, 86.6% 17.7%, 70% 16%, 56% 20.4%, 60.5% 47%, 52% 49.3%, 47% 49.4%, 39.7% 47%, 43.8% 20%, 31% 16%, 13% 17.8%, 21.6% 21%, 37.5% 29%, 30.7% 47%, 48.2% 59.9%, 41.8% 68%, 30% 75%, 24% 75%, 17.4% 66%, 20.4% 52.5%, 9.7% 41%, -1.6% 28%, 7% 15%);
+}
+
+.brave-logo .mask::after{
+content:"";
+position:absolute;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:var(--fill-color);
+clip-path:polygon(49.6% 73.2%, 30.4% 82%, 49.6% 99.5%, 69.9% 83%);
+}
+
+/* blob pairs and curved shapes */
+.brave-logo .i .b,
+.brave-logo .e .b{
+position:absolute;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background-repeat:no-repeat;
+}
+
+.brave-logo .b::before,
+.brave-logo .b::after{
+content:"";
+position:absolute;
+display: block;
+box-shadow: 0 0 0 1px rgba(0,0,0,0);
+box-sizing:border-box;
+}
+
+.brave-logo .i .b1{
+background-image: linear-gradient(-20.2deg, var(--fill-color) 50%,transparent 50%), linear-gradient(20.2deg, var(--fill-color) 50%,transparent 50%);
+background-size: 34px 20px, 34px 20px;
+background-position: 198px 0px, 273px 0px;
+}
+
+.brave-logo .i .b1::before{
+left: 208px;
+top: 0px;
+background: var(--fill-color);
+border-radius: 50%;
+width: 89px;
+height: 66px;
+transform: rotate(0deg);
+}
+
+.brave-logo .i .b1::after{
+left: 123px;
+top: -41px;
+border-bottom: 4px solid var(--fill-color);
+border-radius: 50%;
+width: 94px;
+height: 66px;
+transform: rotate(-1.3deg);
+clip-path: polygon(214% 6%, -77% 29%, 100% 100%, 12% 97%);
+}
+
+.brave-logo .i .b2::after{
+right: 125px;
+top: -41px;
+border-bottom: 4px solid var(--fill-color);
+border-radius: 50%;
+width: 94px;
+height: 66px;
+transform: rotate(3deg);
+clip-path: polygon(214% 6%, -77% 29%, 100% 100%, 12% 97%);
+}
+
+.brave-logo .i .b2{
+background-image: linear-gradient(50.2deg, var(--fill-color) 50%,transparent 50%);
+background-size: 55px 88px;
+background-position: 440px 35px;
+}
+
+.brave-logo .i .b2::before{
+right: 0px;
+top: 92px;
+border-radius: 50%;
+width: 156px;
+height: 88px;
+transform: rotate(2deg);
+background: var(--fill-color);
+clip-path: polygon(48% 25%, 100% -152px, 100% 100%, 46% 110%);
+}
+
+.brave-logo .i .b3::before{
+right: 0px;
+top: 92px;
+border-radius: 0%;
+width: 32px;
+height: 88px;
+background-image: linear-gradient(var(--fill-color) 50%,transparent 50%);
+clip-path: polygon(29% 0.4%, 64.7% 20%, 100% 45%, 82% 71%, 63% 80%, 25% 94%);
+background-size: 28px 161px;
+background-position: 0 0;
+background-repeat: no-repeat;
+}
+
+.brave-logo .i .b3::after{
+left: 1px;
+top: 81px;
+border-radius: 50%;
+width: 180px;
+height: 108px;
+transform: rotate(0deg);
+background: var(--fill-color);
+clip-path: polygon(0 0, 10% 36%, 49% 75%, 0px 100%);
+}
+
+.brave-logo .i .b3{
+background-image: linear-gradient(var(--fill-color), var(--fill-color)), linear-gradient(var(--fill-color), var(--fill-color)), linear-gradient(var(--fill-color), var(--fill-color)), linear-gradient(var(--fill-color), var(--fill-color)), linear-gradient(var(--primary-color), var(--primary-color)), linear-gradient(var(--secondary-color), var(--secondary-color));
+background-size: 24px 17px, 24px 17px, 24px 20px, 24px 20px, 10px 10px, 10px 10px;
+background-position: 59px 80px, 421px 80px, 381px 254px, 97px 254px, 257px 293px, 234px 293px;
+}
+
+.brave-logo .i .b4::before{
+left: 76px;
+top: 87px;
+border-radius: 50%;
+width: 33px;
+height: 10px;
+transform: rotate(11deg);
+background: var(--secondary-color);
+}
+
+.brave-logo .i .b4::after{
+right: 76px;
+top: 87px;
+border-radius: 44%;
+width: 33px;
+height: 9px;
+transform: rotate(-11.7deg);
+background: var(--primary-color);
+}
+
+.brave-logo .i .b5::before{
+left: 35px;
+bottom: 83px;
+border-radius: 50%;
+width: 68px;
+height: 44px;
+transform: rotate(-25deg); /*23*/
+background: var(--secondary-color);
+}
+
+.brave-logo .i .b5::after{
+right: 45px;
+bottom: 87px;
+border-radius: 50%;
+width: 58px;
+height: 43px;
+transform: rotate(14deg);
+background: var(--primary-color);
+}
+
+.brave-logo .i .b6::after{
+right: 89px;
+bottom: 1px;
+border-radius: 0% 75% 56% 51% / 0% 20% 66% 100%;
+width: 100px;
+height: 100px;
+transform: rotate(-9deg);
+background: var(--fill-color);
+}
+
+.brave-logo .i .b6::before{
+right: 86px;
+bottom: 9px;
+border-radius: 42px 1px 50px 50px;
+width: 107px;
+height: 100px;
+transform: rotate(-23deg);
+background: var(--fill-color);
+}
+
+.brave-logo .i .b7::before{
+right: 104px;
+bottom: 16px;
+border-radius: 50%;
+width: 137px;
+height: 70px;
+transform: rotate(38deg);
+border-bottom: 10px solid var(--fill-color);
+}
+
+.brave-logo .i .b7::after{
+right: 196px;
+bottom: 65px;
+border-radius: 50%;
+width: 48px;
+height: 24px;
+transform: rotate(3deg);
+background: var(--fill-color);
+}
+
+.brave-logo .i .b8::before{
+left: 104px;
+bottom: 16px;
+border-radius: 50%;
+width: 137px;
+height: 70px;
+transform: rotate(-35deg);
+border-bottom: 10px solid var(--fill-color);
+}
+
+.brave-logo .i .b8::after{
+left: 191px;
+bottom: 66px;
+border-radius: 50%;
+width: 53px;
+height: 23px;
+transform: rotate(1.8deg);
+background: var(--fill-color);
+}
+
+.brave-logo .i .b9::before{
+left: 82px;
+bottom: 3px;
+border-radius: 52% 0 42% 61% / 26% 30% 54% 70%;
+width: 102px;
+height: 104px;
+transform: rotate(22.4deg);
+background: var(--fill-color);
+}
+
+.brave-logo .i .b9::after{
+left: 194px;
+bottom: 51px;
+border-radius: 50%;
+width: 57px;
+height: 10px;
+transform: rotate(-45.6deg);
+background: var(--fill-color);
+}
+
+.brave-logo .i .b4{
+background-image: linear-gradient(var(--fill-color), var(--fill-color)), linear-gradient(var(--fill-color), var(--fill-color)), linear-gradient(var(--fill-color), var(--fill-color)), linear-gradient(var(--fill-color), var(--fill-color));
+background-size: 20px 8px, 20px 8px, 20px 10px, 20px 10px;
+background-position: 155px 74px, 340px 74px, 215px 97px, 270px 97px;
+}
+
+.brave-logo .i .b10::before{
+left: 135px; /*137 135*/
+top: 85px;
+border-radius: 21px 9px;
+width: 84px; /*82 84*/
+height: 37px;
+transform: rotate(16.4deg);
+background: var(--secondary-color);
+}
+
+.brave-logo .i .b10::after{
+right: 134px;
+top: 87px;
+border-radius: 9px 11px 22px 19px;
+width: 86px;
+height: 37px;
+transform: rotate(-14.4deg);
+background: var(--primary-color);
+}
+
+.brave-logo .i .b5{
+background-image: linear-gradient(var(--fill-color),var(--fill-color)), linear-gradient(var(--fill-color), var(--fill-color));
+background-size: 10px 13px, 10px 10px;
+background-position: 152px 223px, 340px 225px;
+}
+
+.brave-logo .i .b11::before{
+left: 160px;
+top: 207px;
+border-radius: 8px 9px;
+width: 20px;
+height: 32px;
+transform: rotate(-151.6deg);
+background: var(--secondary-color);
+}
+
+.brave-logo .i .b11::after{
+right: 162px;
+top: 201px;
+border-radius: 10px 20px;
+width: 20px;
+height: 38px;
+transform: rotate(154deg);
+background: var(--primary-color);
+}
+
+.brave-logo .i .b6{
+background-image: linear-gradient(var(--secondary-color),var(--secondary-color)), linear-gradient(var(--primary-color),var(--primary-color));
+background-size: 10px 10px, 10px 10px;
+background-position: 197px 225px, 298px 225px;
+}
+
+.brave-logo .i .b12::before{
+left: 202px;
+top: 215px;
+border-radius: 9px;
+width: 19px;
+height: 20px;
+transform: rotate(87deg);
+background: var(--fill-color);
+}
+
+.brave-logo .i .b12::after{
+right: 201px;
+top: 214px;
+border-radius: 9px;
+width: 28px;
+height: 20px;
+transform: rotate(1deg);
+background: var(--fill-color);
+}
+
+.brave-logo .e .b13::before{
+right: -3px;
+bottom: 94px;
+border-radius: 40% 60% 70% 30% / 49% 51% 49% 51%;
+width: 123px;
+height: 22px;
+transform: rotate(25deg);
+background: var(--fill-color);
+}
+
+.brave-logo .e .b13::after{
+right: 0px;
+bottom: 81px;
+border-radius: 22px;
+width: 37px;
+height: 14px;
+transform: rotate(28deg);
+background: var(--fill-color);
+}
+
+.brave-logo .e .b14::before{
+right: 99px;
+bottom: 100px;
+border-radius: 7% 60% 70% 30% / 49% 51% 49% 51%;
+width: 112px;
+height: 14px;
+transform: rotate(-27.7deg);
+background: var(--fill-color);
+}
+
+.brave-logo .e .b14::after{
+left: 34px;
+bottom: 11px;
+border-radius: 9px;
+width: 101px;
+height: 135px;
+transform: rotate(-51.4deg);
+background: var(--fill-color);
+box-shadow: 0 0 0 1px rgba(0,0,0,0);
+clip-path: polygon(0% 0%, 5% 5%, 100% 100%, 0% 100%);
+}
+
+.brave-logo .e .b14{
+background-image: linear-gradient(143.1deg, var(--fill-color) 50%, transparent 50%), linear-gradient(141.7deg, var(--fill-color) 50%, transparent 50%);
+background-size: 101px 70px ,102px 70px;
+background-position: 110px 54px, 103px 60px;
+}
+
+.brave-logo .e::after{
+content: "";
+position: absolute;
+right: 51px;
+bottom: -20px;
+background: var(--fill-color);
+width: 4px;
+height: 121px;
+transform: rotate(51.8deg);
+box-shadow: 0 0 0 1px rgba(0,0,0,0);
+display: block;
+}
+
+.brave-logo .e::before{
+content: "";
+position: absolute;
+left: 8px;
+top: 39px;
+background: var(--fill-color);
+width: 19px;
+height: 30px;
+transform: rotate(-52deg);
+box-shadow: 0 0 0 1px rgba(0,0,0,0);
+display: block;
+z-index: 4;
+border-radius: 7px;
+clip-path: polygon(0 0, 48% 0, 33% 42%, 0 41%);
+}
+
+/* predeclared sizes */
+.brave-logo.b768{--dimensions:768}
+.brave-logo.b512{--dimensions:512}
+.brave-logo.b384{--dimensions:384}
+.brave-logo.b256{--dimensions:256}
+.brave-logo.b128{--dimensions:128}
+.brave-logo.b96{--dimensions:96}
+.brave-logo.b72{--dimensions:72}
+.brave-logo.b64{--dimensions:64}
+.brave-logo.b48{--dimensions:48}
+.brave-logo.b40{--dimensions:40}
+.brave-logo.b32{--dimensions:32}
+.brave-logo.b24{--dimensions:24}
+.brave-logo.b16{--dimensions:16}
